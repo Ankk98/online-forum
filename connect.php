@@ -1,16 +1,27 @@
 <?php
 //connect.php
 $server = 'localhost';
-$username   = 'usernamehere';
-$password   = 'passwordhere';
-$database   = 'databasenamehere';
+$username   = 'root';
+$password   = '';
+$database   = 'online-forum-database';
 
-if(!mysql_connect($server, $username,  $password))
-{
-    exit('Error: could not establish database connection');
+// Create connection
+$conn = new mysqli($server, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+   die("Connection failed: " . $conn->connect_error);
 }
-if(!mysql_select_db($database)
-{
-    exit('Error: could not select the database');
-}
+// if(!mysql_select_db($database))
+// {
+//     exit('Error: could not select the database');
+// }
+// <!--
+// // Check connection
+// if ($conn->connect_error) {
+//    die("Connection failed: " . $conn->connect_error);
+// }
+// echo "Connected successfully";
+//  -->
+
 ?>

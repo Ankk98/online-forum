@@ -9,12 +9,12 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
     /*the form hasn't been posted yet, display it
       note that the action="" will cause the form to post to the same page it is on */
-    echo '<form method="post" action="">
+    echo '<form method="post" action=""
         Username: <input type="text" name="user_name" />
         Password: <input type="password" name="user_pass">
         Password again: <input type="password" name="user_pass_check">
         E-mail: <input type="email" name="user_email">
-        <input type="submit" value="Add category" />
+        <input type="submit" value="Sign Up" />
      </form>';
 }
 else
@@ -58,7 +58,7 @@ else
 
     if(!empty($errors)) /*check for an empty array, if there are errors, they're in this array (note the ! operator)*/
     {
-        echo 'Uh-oh.. a couple of fields are not filled in correctly..';
+        echo 'Some fields are not filled correctly..';
         echo '<ul>';
         foreach($errors as $key => $value) /* walk through the array so all the errors get displayed */
         {
@@ -73,13 +73,13 @@ else
         //also notice the sha1 function which hashes the password
         $sql = "INSERT INTO
                     users(user_name, user_pass, user_email ,user_date, user_level)
-                VALUES('" . mysql_real_escape_string($_POST['user_name']) . "',
+                VALUES('" . mysqli_real_escape_string($conn, $_POST['user_name']) . "',
                        '" . sha1($_POST['user_pass']) . "',
-                       '" . mysql_real_escape_string($_POST['user_email']) . "',
+                       '" . mysqli_real_escape_string($conn, $_POST['user_email']) . "',
                         NOW(),
                         0)";
 
-        $result = mysql_query($sql);
+        $result = mysqli_query($conn ,$sql);
         if(!$result)
         {
             //something went wrong, display the error
