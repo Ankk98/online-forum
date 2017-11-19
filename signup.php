@@ -9,11 +9,15 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
     /*the form hasn't been posted yet, display it
       note that the action="" will cause the form to post to the same page it is on */
-    echo '<form method="post" action=""
+    echo '<form method="post" action="">
         Username: <input type="text" name="user_name" />
+        <br>
         Password: <input type="password" name="user_pass">
+        <br>
         Password again: <input type="password" name="user_pass_check">
+        <br>
         E-mail: <input type="email" name="user_email">
+        <br>
         <input type="submit" value="Sign Up" />
      </form>';
 }
@@ -84,7 +88,7 @@ else
         {
             //something went wrong, display the error
             echo 'Something went wrong while registering. Please try again later.';
-            //echo mysql_error(); //debugging purposes, uncomment when needed
+            echo mysqli_error($conn); //debugging purposes, uncomment when needed
         }
         else
         {

@@ -12,16 +12,15 @@ $conn = new mysqli($server, $username, $password);
 if ($conn->connect_error) {
    die("Connection failed: " . $conn->connect_error);
 }
-// if(!mysql_select_db($database))
-// {
-//     exit('Error: could not select the database');
-// }
-// <!--
+if(!mysqli_select_db($conn, $database))
+{
+    exit('Error: could not select the database');
+}
+
 // // Check connection
-// if ($conn->connect_error) {
-//    die("Connection failed: " . $conn->connect_error);
-// }
+if ($conn->connect_error) {
+   die("Connection failed: " . $conn->connect_error);
+}
 // echo "Connected successfully";
-//  -->
 
 ?>

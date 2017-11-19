@@ -1,5 +1,5 @@
 <?php
-//create_cat.php
+//reply.php
 include 'connect.php';
 include 'header.php';
 
@@ -25,10 +25,10 @@ else
                           post_by)
                 VALUES ('" . $_POST['reply-content'] . "',
                         NOW(),
-                        " . mysql_real_escape_string($_GET['id']) . ",
+                        " . mysqli_real_escape_string($conn, $_GET['id']) . ",
                         " . $_SESSION['user_id'] . ")";
 
-        $result = mysql_query($sql);
+        $result = mysqli_query($conn, $sql);
 
         if(!$result)
         {

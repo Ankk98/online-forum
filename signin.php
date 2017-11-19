@@ -18,7 +18,9 @@ else
           note that the action="" will cause the form to post to the same page it is on */
         echo '<form method="post" action="">
             Username: <input type="text" name="user_name" />
+            <br>
             Password: <input type="password" name="user_pass">
+            <br>
             <input type="submit" value="Sign in" />
          </form>';
     }
@@ -89,7 +91,7 @@ else
                     $_SESSION['signed_in'] = true;
 
                     //we also put the user_id and user_name values in the $_SESSION, so we can use it at various pages
-                    while($row = mysql_fetch_assoc($result))
+                    while($row = mysqli_fetch_assoc($result))
                     {
                         $_SESSION['user_id']    = $row['user_id'];
                         $_SESSION['user_name']  = $row['user_name'];

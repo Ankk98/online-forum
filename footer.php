@@ -1,10 +1,11 @@
+
 </div><!-- content -->
 </div><!-- wrapper -->
-<div id="footer">Created for DSW Project
-
+<div id="wrapper">
+<div id="footer">
+  Created for DSW Project
+</div>
 </div>
 </body>
-<?php
-mysqli_close($conn);
-?>
+
 </html>
