@@ -132,7 +132,7 @@ else
                     $result = mysqli_query($conn, $sql);
 
                     //after a lot of work, the query succeeded!
-                    echo 'You have successfully created <a href="reply.php?id='. $topicid . '">your new topic</a>.';
+                    echo 'You have successfully created <a href="cateory.php?id='. $topicid . '">your new topic</a>.';
                 }
             }
         }

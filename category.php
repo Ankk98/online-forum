@@ -28,7 +28,7 @@ else
     else
     {
         //display category data
-        while($row = mysqli_fetch_assoc($conn, $result))
+        while($row = mysqli_fetch_assoc($result))
         {
             echo '<h2>Topics in ′' . $row['cat_name'] . '′ category</h2>';
         }
@@ -52,7 +52,7 @@ else
         }
         else
         {
-            if(mysqli_num_rows($conn, $result) == 0)
+            if(mysqli_num_rows($result) == 0)
             {
                 echo 'There are no topics in this category yet.';
             }
@@ -65,7 +65,7 @@ else
                         <th>Created at</th>
                       </tr>';
 
-                while($row = mysqli_fetch_assoc($conn, $result))
+                while($row = mysqli_fetch_assoc($result))
                 {
                     echo '<tr>';
                         echo '<td class="leftpart">';
