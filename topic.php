@@ -68,20 +68,28 @@ else
                 echo '<table border="1">
                       <tr>
                         <th>Post</th>
-                        <th>Date</th>
+                        <th>Date and user name</th>
                       </tr>';
 
                 while($row = mysqli_fetch_assoc($result))
                 {
                     echo '<tr>';
                         echo '<td class="leftpart">';
-                            echo '<h3><a href="reply.php?id=' . $row['post_id'] . '">' . $row['post_content'] . '</a><h3>';
+                            echo $row['post_content'];
                         echo '</td>';
                         echo '<td class="rightpart">';
                             echo date('d-m-Y', strtotime($row['post_date']));
+                            echo "\n";
+                            echo $_SESSION['user_name'];
                         echo '</td>';
                     echo '</tr>';
                 }
+
+                echo '<form method="post" action="reply.php?id=' . $row['topic_id'] . '">
+                    <textarea name="reply-content"></textarea>
+                    <input type="submit" value="Submit reply" />
+                </form>';
+                
             }
         }
     }

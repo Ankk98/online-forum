@@ -105,6 +105,7 @@ else
                 //the first query worked, now start the second, posts query
                 //retrieve the id of the freshly created topic for usage in the posts query
                 $topicid = mysqli_insert_id($conn);
+                $topic_category = mysqli_real_escape_string($conn, $_POST['topic_cat']);
 
                 $sql = "INSERT INTO
                             posts(post_content,
@@ -132,7 +133,7 @@ else
                     $result = mysqli_query($conn, $sql);
 
                     //after a lot of work, the query succeeded!
-                    echo 'You have successfully created <a href="cateory.php?id='. $topicid . '">your new topic</a>.';
+                    echo 'You have successfully created <a href="category.php?id='. $topic_category . '">your new topic</a>.';
                 }
             }
         }

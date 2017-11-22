@@ -29,4 +29,7 @@ else
         echo 'New category successfully added.';
     }
 }
+
+include 'footer.php';
+
 ?>

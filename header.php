@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<title>Online Developer Forum Project DSW</title>
+<title>Online Forum Project DSW</title>
 <link rel="stylesheet" href="style.css">
 </head>
 

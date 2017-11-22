@@ -40,6 +40,5 @@ else
         }
     }
 }
-
 include 'footer.php';
 ?>
